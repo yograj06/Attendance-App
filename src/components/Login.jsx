@@ -3,68 +3,162 @@ import React, { useState } from 'react'
 const Login = () => {
 
   const [isLoginMode, setIsLoginMode] = useState(true)
+  const [role, setRole] = useState("student")
+
+  // form states
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [confirmPassword, setConfirmPassword] = useState("")
+
+  // 🔹 SIGN UP HANDLER
+  const handleSignUp = () => {
+    if (password !== confirmPassword) {
+      alert("Passwords do not match")
+      return
+    }
+
+    const user = { name, email, password, role }
+
+    localStorage.setItem("user", JSON.stringify(user))
+
+    alert("Account created successfully")
+
+    // reset & go to login
+    setIsLoginMode(true)
+    setName("")
+    setEmail("")
+    setPassword("")
+    setConfirmPassword("")
+  }
+
+  // 🔹 LOGIN HANDLER
+  const handleLogin = () => {
+    const storedUser = JSON.parse(localStorage.getItem("user"))
+
+    if (!storedUser) {
+      alert("No account found. Please sign up first.")
+      return
+    }
+
+    if (
+      email === storedUser.email &&
+      password === storedUser.password
+    ) {
+      alert(`Login successful as ${storedUser.role}`)
+      // later: redirect based on role
+    } else {
+      alert("Invalid email or password")
+    }
+  }
+
+  // 🔹 FORM SUBMIT
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    isLoginMode ? handleLogin() : handleSignUp()
+  }
+
   return (
+    <div className='w-[430px] bg-white p-8 rounded-2xl shadow-lg'>
 
-
-    <div className='w-\[430px\] bg-white p-8 rounded-2xl shadow-lg'>
-      { /*header title*/}
+      {/* header */}
       <div className='flex justify-center mb-4'>
-        <h2 className='text-3xl font-semibold text-center'>
+        <h2 className='text-3xl font-semibold'>
           {isLoginMode ? "Log in" : "Sign Up"}
         </h2>
       </div>
 
-
-
-      {/*tab controls*/}
+      {/* tabs */}
       <div className='relative flex h-12 mb-6 border border-gray-300 rounded-full overflow-hidden'>
-        <button onClick={() => setIsLoginMode(true)} className = {`w-1/2 text-lg font-medium transition-all z-10 ${isLoginMode ? "text-white" : "text-black"}`}>
+        <button
+          onClick={() => setIsLoginMode(true)}
+          className={`w-1/2 z-10 ${isLoginMode ? "text-white" : "text-black"}`}
+        >
           Log in
         </button>
-        <button onClick={() => setIsLoginMode(false)} className = {`w-1/2 text-lg font-medium transition-all z-10 ${!isLoginMode  ?"text-white" : "text-black"}`}>
+        <button
+          onClick={() => setIsLoginMode(false)}
+          className={`w-1/2 z-10 ${!isLoginMode ? "text-white" : "text-black"}`}
+        >
           Sign Up
         </button>
-
-        <div className= {`absolute top-0 h-full w-1/2 rounded-full bg-black ${isLoginMode ? "left-0" : "left-1/2"}`}></div>
-
+        <div
+          className={`absolute top-0 h-full w-1/2 bg-black rounded-full ${isLoginMode ? "left-0" : "left-1/2"}`}
+        ></div>
       </div>
 
-      {/*form section */}
+      {/* form */}
+      <form className='space-y-4' onSubmit={handleSubmit}>
 
-      <form className='space-y-4'>
         {!isLoginMode && (
-          <input type="text" placeholder='Name' required className='w-full p-3 border-b-2 border-gray-300 outline-none focus:border-gray-700 placeholder-gray-600'/>
+          <input
+            type="text"
+            placeholder="Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+            className="w-full p-3 border-b-2 border-gray-300 outline-none"
+          />
         )}
 
-        {/*Shard input failed*/}
-        <input type="email" placeholder='Email Address' required className='w-full p-3 border-b-2 border-gray-300 outline-none focus:border-gray-700 placeholder-gray-600'/>
-        <input type="password" placeholder='Password' required className='w-full p-3 border-b-2 border-gray-300 outline-none focus:border-gray-700 placeholder-gray-600'/>
+        {/* role */}
+        <select
+          value={role}
+          onChange={(e) => setRole(e.target.value)}
+          className="w-full p-3 border-b-2 border-gray-300 bg-transparent outline-none"
+        >
+          <option value="student">Student</option>
+          <option value="teacher">Teacher</option>
+          <option value="admin">Admin</option>
+        </select>
 
-        {/*Signup failed*/}
+        <input
+          type="email"
+          placeholder="Email Address"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+          className="w-full p-3 border-b-2 border-gray-300 outline-none"
+        />
+
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+          className="w-full p-3 border-b-2 border-gray-300 outline-none"
+        />
+
         {!isLoginMode && (
-          <input type="password" placeholder='Confirm Password' required className='w-full p-3 border-b-2 border-gray-300 outline-none focus:border-gray-700 placeholder-gray-600'/>
+          <input
+            type="password"
+            placeholder="Confirm Password"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            required
+            className="w-full p-3 border-b-2 border-gray-300 outline-none"
+          />
         )}
 
-        {/*forget password for log in */}
-        {isLoginMode && (
-          <div className='text-center'><p className='text-black font-semibold hover:underline'>Forget Password</p></div>
-        )}
-
-        {/*Shared button*/}
-        <button className='w-full p-3 bg-black text-white rounded-full text-lg font-medium'>
+        <button className='w-full p-3 bg-black text-white rounded-full text-lg'>
           {isLoginMode ? "Log in" : "Sign Up"}
         </button>
 
-        {/**switch link */}
-        <p className='text-center text-black'>{isLoginMode ? "Don't have an account" : "Already have an account "}
-          <a href="#" onClick={() => setIsLoginMode(!isLoginMode)} className='text-black font-semibold hover:underline'>
-            {isLoginMode ? " Sign Up now" : " Log in"} </a></p>
-
-
-
+        <p className='text-center'>
+          {isLoginMode ? "Don't have an account?" : "Already have an account?"}
+          <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault()
+              setIsLoginMode(!isLoginMode)
+            }}
+            className="font-semibold"
+          >
+            {isLoginMode ? " Sign Up" : " Log in"}
+          </a>
+        </p>
       </form>
-
-
     </div>
   )
 }

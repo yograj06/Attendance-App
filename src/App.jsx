@@ -20,11 +20,11 @@ const App = () => {
               <div className="grow grid place-items-center pb-10 sm:pb-16">
                 <div className="flex flex-col items-center gap-4">
 
-                  <h1 className="text-4xl font-bold mt-6">
+                  <h1 className="text-4xl font-bold mt-8">
                     Welcome
                   </h1>
 
-                  <h2 className="text-2xl text-gray-700 font-semibold text-center max-w-md mb-6">
+                  <h2 className="text-2xl text-gray-700 font-semibold text-center max-w-md mb-8">
                     Face Recognition Attendance System
                   </h2>
 

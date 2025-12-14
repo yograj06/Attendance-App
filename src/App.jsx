@@ -17,7 +17,7 @@ const App = () => {
             <div className="min-h-screen flex flex-col bg-gray-200">
 
               {/* Center Content */}
-              <div className="flex-grow grid place-items-center">
+              <div className="grow grid place-items-center">
                 <div className="flex flex-col items-center gap-4">
 
                   <h1 className="text-4xl font-bold mt-6">

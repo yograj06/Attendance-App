@@ -64,7 +64,7 @@ const Login = () => {
   return (
     <div className="
       w-full
-      max-w-[380px]
+      max-w-95
       bg-white
       p-8
       sm:p-10

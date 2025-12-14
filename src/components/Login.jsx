@@ -25,7 +25,6 @@ const Login = () => {
 
     alert("Account created successfully")
 
-    // reset + redirect to login
     setIsLoginMode(true)
     setName("")
     setEmail("")
@@ -45,11 +44,8 @@ const Login = () => {
     if (email === storedUser.email && password === storedUser.password) {
 
       alert("Login successful")
-
-      // save session
       localStorage.setItem("loggedInUser", JSON.stringify(storedUser))
 
-      // 🔴 ROLE-BASED REDIRECT
       if (storedUser.role === "student") navigate("/student")
       else if (storedUser.role === "teacher") navigate("/teacher")
       else if (storedUser.role === "admin") navigate("/admin")
@@ -66,33 +62,43 @@ const Login = () => {
   }
 
   return (
-    <div className='w-[/430px] bg-white p-8 rounded-2xl shadow-lg'>
+    <div className="
+      w-full
+      max-w-[380px]
+      bg-white
+      p-8
+      sm:p-10
+      rounded-2xl
+      shadow-lg
+    ">
 
       {/* Header */}
-      <div className='flex justify-center mb-4'>
-        <h2 className='text-3xl font-semibold'>
+      <div className="flex justify-center mb-6">
+        <h2 className="text-3xl font-semibold">
           {isLoginMode ? "Log in" : "Sign Up"}
         </h2>
       </div>
 
       {/* Tabs */}
-      <div className='relative flex h-12 mb-6 border border-gray-300 rounded-full overflow-hidden'>
+      <div className="relative flex h-12 mb-6 border border-gray-300 rounded-full overflow-hidden">
         <button
+          type="button"
           onClick={() => setIsLoginMode(true)}
-          className={`w-1/2 z-10 ${isLoginMode ? "text-white" : "text-black"}`}
+          className={`w-1/2 z-10 transition-all ${isLoginMode ? "text-white" : "text-black"}`}
         >
           Log in
         </button>
 
         <button
+          type="button"
           onClick={() => setIsLoginMode(false)}
-          className={`w-1/2 z-10 ${!isLoginMode ? "text-white" : "text-black"}`}
+          className={`w-1/2 z-10 transition-all ${!isLoginMode ? "text-white" : "text-black"}`}
         >
           Sign Up
         </button>
 
         <div
-          className={`absolute top-0 h-full w-1/2 bg-black rounded-full ${
+          className={`absolute top-0 h-full w-1/2 bg-black rounded-full transition-all duration-300 ${
             isLoginMode ? "left-0" : "left-1/2"
           }`}
         ></div>
@@ -108,7 +114,7 @@ const Login = () => {
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
-            className="w-full p-3 border-b-2 border-gray-300 outline-none"
+            className="w-full p-3 border-b-2 border-gray-300 outline-none placeholder-gray-800"
           />
         )}
 
@@ -129,7 +135,7 @@ const Login = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
-          className="w-full p-3 border-b-2 border-gray-300 outline-none"
+          className="w-full p-3 border-b-2 border-gray-300 outline-none placeholder-gray-800"
         />
 
         <input
@@ -138,7 +144,7 @@ const Login = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
-          className="w-full p-3 border-b-2 border-gray-300 outline-none"
+          className="w-full p-3 border-b-2 border-gray-300 outline-none placeholder-gray-800"
         />
 
         {!isLoginMode && (
@@ -148,7 +154,7 @@ const Login = () => {
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
             required
-            className="w-full p-3 border-b-2 border-gray-300 outline-none"
+            className="w-full p-3 border-b-2 border-gray-300 outline-none placeholder-gray-800"
           />
         )}
 

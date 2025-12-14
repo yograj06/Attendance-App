@@ -1,8 +1,13 @@
+import Navbar from "./Navbar"
+
 const AdminDashboard = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      <h1 className="text-3xl font-bold">🛡️ Admin Dashboard</h1>
-    </div>
+    <>
+      <Navbar />
+      <div className="p-6">
+        <h1 className="text-3xl font-bold">🛡️ Admin Dashboard</h1>
+      </div>
+    </>
   )
 }
 

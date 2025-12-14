@@ -14,8 +14,30 @@ const App = () => {
         <Route
           path="/"
           element={
-            <div className="grid w-[/100%] h-screen place-items-center bg-gray-200">
-              <Login />
+            <div className="min-h-screen flex flex-col bg-gray-200">
+
+              {/* Center Content */}
+              <div className="flex-grow grid place-items-center">
+                <div className="flex flex-col items-center gap-4">
+
+                  <h1 className="text-4xl font-bold mt-6">
+                    Welcome
+                  </h1>
+
+                  <h2 className="text-2xl text-gray-700 font-semibold text-center max-w-md mb-6">
+                    Face Recognition Attendance System
+                  </h2>
+
+                  <Login />
+
+                </div>
+              </div>
+
+              {/* Footer */}
+              <footer className="text-center m-5 sm:mt-10 text-gray-800 text-xs sm:text-sm border-t border-gray-500 pt-4">
+                © 2025 | Attendance App — All rights reserved • Made with ❤️ by Yograj
+              </footer>
+
             </div>
           }
         />

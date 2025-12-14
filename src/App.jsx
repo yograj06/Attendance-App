@@ -34,7 +34,7 @@ const App = () => {
               </div>
 
               {/* Footer */}
-              <footer className="text-center m-5 sm:mt-10 text-gray-800 text-xs sm:text-sm border-t border-gray-500 pt-4">
+              <footer className="text-center m-5 sm:mt-10 text-gray-800 text-xs sm:text-sm border-t border-gray-500 pt-4 mt-15px">
                 © 2025 | Attendance App — All rights reserved • Made with ❤️ by Yograj
               </footer>
 

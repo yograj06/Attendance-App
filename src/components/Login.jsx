@@ -1,17 +1,19 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const Login = () => {
 
   const [isLoginMode, setIsLoginMode] = useState(true)
   const [role, setRole] = useState("student")
 
-  // form states
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [confirmPassword, setConfirmPassword] = useState("")
 
-  // 🔹 SIGN UP HANDLER
+  const navigate = useNavigate()
+
+  // 🔹 SIGN UP
   const handleSignUp = () => {
     if (password !== confirmPassword) {
       alert("Passwords do not match")
@@ -19,12 +21,11 @@ const Login = () => {
     }
 
     const user = { name, email, password, role }
-
     localStorage.setItem("user", JSON.stringify(user))
 
     alert("Account created successfully")
 
-    // reset & go to login
+    // reset + redirect to login
     setIsLoginMode(true)
     setName("")
     setEmail("")
@@ -32,7 +33,7 @@ const Login = () => {
     setConfirmPassword("")
   }
 
-  // 🔹 LOGIN HANDLER
+  // 🔹 LOGIN
   const handleLogin = () => {
     const storedUser = JSON.parse(localStorage.getItem("user"))
 
@@ -41,12 +42,18 @@ const Login = () => {
       return
     }
 
-    if (
-      email === storedUser.email &&
-      password === storedUser.password
-    ) {
-      alert(`Login successful as ${storedUser.role}`)
-      // later: redirect based on role
+    if (email === storedUser.email && password === storedUser.password) {
+
+      alert("Login successful")
+
+      // save session
+      localStorage.setItem("loggedInUser", JSON.stringify(storedUser))
+
+      // 🔴 ROLE-BASED REDIRECT
+      if (storedUser.role === "student") navigate("/student")
+      else if (storedUser.role === "teacher") navigate("/teacher")
+      else if (storedUser.role === "admin") navigate("/admin")
+
     } else {
       alert("Invalid email or password")
     }
@@ -61,14 +68,14 @@ const Login = () => {
   return (
     <div className='w-[/430px] bg-white p-8 rounded-2xl shadow-lg'>
 
-      {/* header */}
+      {/* Header */}
       <div className='flex justify-center mb-4'>
         <h2 className='text-3xl font-semibold'>
           {isLoginMode ? "Log in" : "Sign Up"}
         </h2>
       </div>
 
-      {/* tabs */}
+      {/* Tabs */}
       <div className='relative flex h-12 mb-6 border border-gray-300 rounded-full overflow-hidden'>
         <button
           onClick={() => setIsLoginMode(true)}
@@ -76,19 +83,23 @@ const Login = () => {
         >
           Log in
         </button>
+
         <button
           onClick={() => setIsLoginMode(false)}
           className={`w-1/2 z-10 ${!isLoginMode ? "text-white" : "text-black"}`}
         >
           Sign Up
         </button>
+
         <div
-          className={`absolute top-0 h-full w-1/2 bg-black rounded-full ${isLoginMode ? "left-0" : "left-1/2"}`}
+          className={`absolute top-0 h-full w-1/2 bg-black rounded-full ${
+            isLoginMode ? "left-0" : "left-1/2"
+          }`}
         ></div>
       </div>
 
-      {/* form */}
-      <form className='space-y-4' onSubmit={handleSubmit}>
+      {/* Form */}
+      <form className="space-y-4" onSubmit={handleSubmit}>
 
         {!isLoginMode && (
           <input
@@ -101,7 +112,7 @@ const Login = () => {
           />
         )}
 
-        {/* role */}
+        {/* Role */}
         <select
           value={role}
           onChange={(e) => setRole(e.target.value)}
@@ -141,11 +152,11 @@ const Login = () => {
           />
         )}
 
-        <button className='w-full p-3 bg-black text-white rounded-full text-lg'>
+        <button className="w-full p-3 bg-black text-white rounded-full text-lg">
           {isLoginMode ? "Log in" : "Sign Up"}
         </button>
 
-        <p className='text-center'>
+        <p className="text-center">
           {isLoginMode ? "Don't have an account?" : "Already have an account?"}
           <a
             href="#"
@@ -158,6 +169,7 @@ const Login = () => {
             {isLoginMode ? " Sign Up" : " Log in"}
           </a>
         </p>
+
       </form>
     </div>
   )

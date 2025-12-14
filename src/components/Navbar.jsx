@@ -10,7 +10,7 @@ const Navbar = () => {
   }
 
   return (
-    <nav className="w-full h-14 bg-black text-white flex items-center justify-between px-6">
+    <nav className="w-full h-14 bg-gray-800 text-white flex items-center justify-between px-6">
       
       {/* App name */}
       <h1 className="text-lg font-semibold">
@@ -25,7 +25,7 @@ const Navbar = () => {
 
         <button
           onClick={logout}
-          className="px-3 py-1 border border-white rounded-md hover:bg-white hover:text-black transition"
+          className="px-3 py-1 bg-red-600 border border-gray-900 rounded-full hover:bg-white hover:text-black transition"
         >
           Logout
         </button>

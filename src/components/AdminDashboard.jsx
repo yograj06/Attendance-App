@@ -5,7 +5,7 @@ const AdminDashboard = () => {
     <>
       <Navbar />
       <div className="p-6">
-        <h1 className="text-3xl font-bold">🛡️ Admin Dashboard</h1>
+        <h1 className="text-3xl font-bold text-center">Admin Dashboard - Coming Soon.....</h1>
       </div>
     </>
   )

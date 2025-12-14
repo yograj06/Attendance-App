@@ -17,7 +17,7 @@ const App = () => {
             <div className="min-h-screen flex flex-col bg-gray-200 px-4 sm:px-6">
 
               {/* Center Content */}
-              <div className="grow grid place-items-center">
+              <div className="grow grid place-items-center pb-10 sm:pb-16">
                 <div className="flex flex-col items-center gap-4">
 
                   <h1 className="text-4xl font-bold mt-6">
@@ -34,7 +34,7 @@ const App = () => {
               </div>
 
               {/* Footer */}
-              <footer className="text-center m-5 sm:mt-10 text-gray-800 text-xs sm:text-sm border-t border-gray-500 pt-4 mt-15px">
+              <footer className="text-center mt-6 mb-5 sm:mt-10 text-gray-800 text-xs sm:text-sm border-t border-gray-500 pt-4">
                 © 2025 | Attendance App — All rights reserved • Made with ❤️ by Yograj
               </footer>
 

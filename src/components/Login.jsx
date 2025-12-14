@@ -59,7 +59,7 @@ const Login = () => {
   }
 
   return (
-    <div className='w-[430px] bg-white p-8 rounded-2xl shadow-lg'>
+    <div className='w-[/430px] bg-white p-8 rounded-2xl shadow-lg'>
 
       {/* header */}
       <div className='flex justify-center mb-4'>

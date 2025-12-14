@@ -70,6 +70,8 @@ const Login = () => {
       sm:p-10
       rounded-2xl
       shadow-lg
+      mx-auto
+
     ">
 
       {/* Header */}

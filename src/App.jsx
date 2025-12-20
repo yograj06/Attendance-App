@@ -24,7 +24,7 @@ const App = () => {
                     Welcome
                   </h1>
 
-                  <h2 className="text-2xl text-gray-700 font-semibold text-center max-w-md mb-6">
+                  <h2 className="text-2xl text-gray-700 font-semibold text-center max-w-md mb-15">
                     Face Recognition Attendance System
                   </h2>
 
@@ -33,7 +33,7 @@ const App = () => {
               </div>
 
               {/* Footer */}
-              <footer className="text-center mt-6 mb-5 sm:mt-10 text-gray-800 text-xs sm:text-sm border-t border-gray-500 pt-4">
+              <footer className="text-center mt-30 mb-5 sm:mt-10 text-gray-800 text-xs sm:text-sm border-t border-gray-500 pt-4">
                 © 2025 | Attendance App — All rights reserved • Made with ❤️ by
                 Yograj
               </footer>

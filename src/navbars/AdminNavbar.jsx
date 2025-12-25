@@ -40,22 +40,35 @@ const AdminNavbar = () => {
         </div>
 
         <nav className="flex flex-col p-4 gap-3">
+
           <NavLink
-            to="/admin/overview"
+            to="/admin"
             className={({ isActive }) =>
-              `p-2 rounded ${
+              `p-2 rounded transition ${
                 isActive ? "bg-gray-700" : "hover:bg-gray-800"
               }`
             }
             onClick={() => setOpen(false)}
           >
-            Dashboard Overview
+            Dashboard
+          </NavLink>
+
+          <NavLink
+            to="/admin/overview"
+            className={({ isActive }) =>
+              `p-2 rounded transition ${
+                isActive ? "bg-gray-700" : "hover:bg-gray-800"
+              }`
+            }
+            onClick={() => setOpen(false)}
+          >
+            Overview
           </NavLink>
 
           <NavLink
             to="/admin/users"
             className={({ isActive }) =>
-              `p-2 rounded ${
+              `p-2 rounded transition ${
                 isActive ? "bg-gray-700" : "hover:bg-gray-800"
               }`
             }
@@ -64,28 +77,15 @@ const AdminNavbar = () => {
             Manage Users
           </NavLink>
 
-          <NavLink
-            to="/admin/reports"
-            className={({ isActive }) =>
-              `p-2 rounded ${
-                isActive ? "bg-gray-700" : "hover:bg-gray-800"
-              }`
-            }
-            onClick={() => setOpen(false)}
-          >
-            Reports
-          </NavLink>
-
           <button
             onClick={logout}
-            className="text-left p-2 rounded hover:bg-red-600"
+            className="text-left p-2 rounded hover:bg-red-600 transition"
           >
             Logout
           </button>
         </nav>
       </div>
 
-      {/* Overlay */}
       {open && (
         <div
           onClick={() => setOpen(false)}

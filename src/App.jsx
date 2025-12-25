@@ -8,6 +8,12 @@ import StudentLayout from "./components/StudentLayout";
 import TeacherLayout from "./components/TeacherLayout";
 import AdminLayout from "./components/AdminLayout";
 
+import StudentProfile from "./components/StudentProfile"
+import StudentRegistration from "./components/StudentRegistration"
+import StudentAttendance from "./components/StudentAttendance"
+
+
+
 const App = () => {
   return (
     <BrowserRouter>
@@ -51,6 +57,12 @@ const App = () => {
           }
         >
           <Route index element={<StudentDashboard />} />
+
+          {/* 👇 ADD THESE */}
+          <Route path="profile" element={<StudentProfile />} />
+          <Route path="register" element={<StudentRegistration />} />
+          <Route path="attendance" element={<StudentAttendance />} />
+
         </Route>
 
         {/* TEACHER ROUTES */}

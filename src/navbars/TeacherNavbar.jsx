@@ -40,10 +40,23 @@ const TeacherNavbar = () => {
         </div>
 
         <nav className="flex flex-col p-4 gap-3">
+
+          <NavLink
+            to="/teacher"
+            className={({ isActive }) =>
+              `p-2 rounded transition ${
+                isActive ? "bg-gray-700" : "hover:bg-gray-800"
+              }`
+            }
+            onClick={() => setOpen(false)}
+          >
+            Dashboard
+          </NavLink>
+
           <NavLink
             to="/teacher/profile"
             className={({ isActive }) =>
-              `p-2 rounded ${
+              `p-2 rounded transition ${
                 isActive ? "bg-gray-700" : "hover:bg-gray-800"
               }`
             }
@@ -53,21 +66,9 @@ const TeacherNavbar = () => {
           </NavLink>
 
           <NavLink
-            to="/teacher/classes"
-            className={({ isActive }) =>
-              `p-2 rounded ${
-                isActive ? "bg-gray-700" : "hover:bg-gray-800"
-              }`
-            }
-            onClick={() => setOpen(false)}
-          >
-            My Classes
-          </NavLink>
-
-          <NavLink
             to="/teacher/attendance"
             className={({ isActive }) =>
-              `p-2 rounded ${
+              `p-2 rounded transition ${
                 isActive ? "bg-gray-700" : "hover:bg-gray-800"
               }`
             }
@@ -78,14 +79,13 @@ const TeacherNavbar = () => {
 
           <button
             onClick={logout}
-            className="text-left p-2 rounded hover:bg-red-600"
+            className="text-left p-2 rounded hover:bg-red-600 transition"
           >
             Logout
           </button>
         </nav>
       </div>
 
-      {/* Overlay */}
       {open && (
         <div
           onClick={() => setOpen(false)}

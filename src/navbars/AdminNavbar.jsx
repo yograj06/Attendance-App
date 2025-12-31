@@ -16,14 +16,18 @@ const AdminNavbar = () => {
       <nav className="w-full bg-black text-white flex items-center justify-between px-6 py-4">
         <button
           onClick={() => setOpen(!open)}
-          className="text-lg font-semibold flex items-center gap-2"
+          className="text-2xl font-semibold flex items-center gap-2"
         >
-          ☰ Admin Dashboard
+          ☰ 
         </button>
+
+         <h2 className="text-2xl font-semibold">
+          Admin Dashboard
+        </h2>
 
         <button
           onClick={logout}
-          className="border border-white px-4 py-1 rounded hover:bg-white hover:text-black transition"
+          className="border border-white px-4 py-1 rounded hover:border-black hover:bg-red-500 hover:text-white transition"
         >
           Logout
         </button>

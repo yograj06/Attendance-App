@@ -126,17 +126,36 @@ const StudentRegistration = () => {
         </div>
 
         {/* OTHER DETAILS */}
+
+       
+
         <div className="mt-6 space-y-5">
           <div>
             <label className="font-semibold">Branch</label>
-            <input
-              type="text"
-              className="p-3 border rounded w-full mt-1"
-              placeholder="Branch"
-              value={branch}
-              onChange={(e) => setBranch(e.target.value)}
-              required
-            />
+            <select
+             className="p-3 border rounded w-full mt-1 
+               sm:text-sm md:text-base 
+               leading-tight 
+               overflow-hidden truncate"
+             value = {branch}
+             onChange={(e) => setBranch(e.target.value)}
+             required 
+            >
+              <option value="">Select branch</option>
+              <option>Computer Science & Engineering</option>
+              <option>Computer Science and Engineering Specialization in Artificial Intelligence and Machine Learning</option>
+              <option>Electronics & Telecommunication Engineering</option>
+              <option>Electrical & Electronics Engineering</option>
+              <option>Biomedical Engineering</option>
+              <option>Electrical Engineering</option>
+              <option>Mechanical Engineering (ME)</option>
+              <option>Mechanical and Smart Manufacturing</option>
+              <option>Civil Engineering</option>
+              <option>Metallurgy & Materials Engineering</option>
+              <option>Production Engineering</option>
+              <option>Chemical Engineering</option>
+              <option>Safety and Fire Engineering</option>
+            </select>
           </div>
 
           <div>

@@ -16,12 +16,12 @@ const TeacherNavbar = () => {
       <nav className="w-full bg-black text-white flex items-center justify-between px-6 py-4">
         <button
           onClick={() => setOpen(!open)}
-          className="text-2xl font-semibold flex items-center gap-2"
+          className="text-lg font-semibold flex items-center gap-2"
         >
           ☰ 
         </button>
 
-        <h2 className="text-2xl font-semibold">
+        <h2 className="text-lg font-semibold">
           Teacher Dashboard
         </h2>
 

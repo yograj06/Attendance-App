@@ -1,18 +1,26 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./components/Login";
+import ProtectedRoute from "./components/ProtectedRoute";
+
+// Dashboards
 import StudentDashboard from "./components/StudentDashboard";
 import TeacherDashboard from "./components/TeacherDashboard";
 import AdminDashboard from "./components/AdminDashboard";
-import ProtectedRoute from "./components/ProtectedRoute";
+
+// Layouts
 import StudentLayout from "./components/StudentLayout";
 import TeacherLayout from "./components/TeacherLayout";
 import AdminLayout from "./components/AdminLayout";
 
-import StudentProfile from "./components/StudentProfile"
-import StudentRegistration from "./components/StudentRegistration"
-import StudentAttendance from "./components/StudentAttendance"
+//Students
+import StudentProfile from "./components/StudentProfile";
+import StudentRegistration from "./components/StudentRegistration";
+import StudentAttendance from "./components/StudentAttendance";
 
-
+//Teachers
+import TeacherRegistration from "./components/TeacherRegistration";
+import TeacherProfile from "./components/TeacherProfile";
+import TeacherAttendance from "./components/TeacherAttendance";
 
 const App = () => {
   return (
@@ -62,7 +70,6 @@ const App = () => {
           <Route path="profile" element={<StudentProfile />} />
           <Route path="register" element={<StudentRegistration />} />
           <Route path="attendance" element={<StudentAttendance />} />
-
         </Route>
 
         {/* TEACHER ROUTES */}
@@ -74,7 +81,11 @@ const App = () => {
             </ProtectedRoute>
           }
         >
-          <Route index element={<TeacherDashboard />} />
+          <Route index element = {<TeacherDashboard />} />
+          
+          <Route path="profile" element={<TeacherProfile />} />
+          <Route path="register" element={<TeacherRegistration />} />
+          <Route path="attendance" element={<TeacherAttendance />} />
         </Route>
 
         {/* ADMIN ROUTES */}

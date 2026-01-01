@@ -144,11 +144,12 @@ const StudentRegistration = () => {
               <option value="">Select branch</option>
               <option>Computer Science & Engineering</option>
               <option>Computer Science and Engineering Specialization in Artificial Intelligence and Machine Learning</option>
+              <option>Information Technology</option>
               <option>Electronics & Telecommunication Engineering</option>
               <option>Electrical & Electronics Engineering</option>
               <option>Biomedical Engineering</option>
               <option>Electrical Engineering</option>
-              <option>Mechanical Engineering (ME)</option>
+              <option>Mechanical Engineering</option>
               <option>Mechanical and Smart Manufacturing</option>
               <option>Civil Engineering</option>
               <option>Metallurgy & Materials Engineering</option>

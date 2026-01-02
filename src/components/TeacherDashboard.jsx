@@ -6,14 +6,17 @@ const TeacherDashboard = () => {
   // Get teacher profile
   const profile = JSON.parse(localStorage.getItem("teacherProfile"))
 
+  const user = JSON.parse(localStorage.getItem("loggedInUser"))
+  const userName = user?.name || "Teacher"
+
   // ---------------- IF NOT REGISTERED ----------------
   if (!profile) {
     return (
-      <div className="flex justify-center items-center min-h-[70vh] px-4">
-        <div className="bg-white shadow-lg rounded-xl p-6 w-full max-w-md border border-gray-300">
+      <div className="flex justify-center items-center min-h-[70vh] px-4 mt-12">
+        <div className="bg-white shadow-lg rounded-xl p-6 w-full max-w-md border border-gray-700">
 
           <h2 className="text-2xl font-bold text-center mb-4">
-            Welcome Teacher
+            Welcome {userName}
           </h2>
 
           <p className="text-gray-700 text-center mb-6">
@@ -48,7 +51,7 @@ const TeacherDashboard = () => {
       <div className="bg-white shadow-lg rounded-xl p-6 w-full max-w-md border border-gray-300">
 
         <h1 className="text-3xl font-bold text-center mb-4">
-          Registration Completed 🎉
+          Registration Completed 
         </h1>
 
         <p className="text-gray-700 text-center mb-6">

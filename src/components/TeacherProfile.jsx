@@ -8,8 +8,8 @@ const TeacherProfile = () => {
   // If NOT registered
   if (!profile) {
     return (
-      <div className="flex justify-center items-center min-h-[70vh] px-4 mt-15">
-        <div className="bg-white shadow-lg rounded-xl p-6 w-full max-w-md border border-gray-300">
+      <div className="flex justify-center items-center min-h-[70vh] px-4 mt-12">
+        <div className="bg-white shadow-lg rounded-xl p-6 w-full max-w-md border border-gray-700">
 
           <h2 className="text-2xl font-bold text-center mb-4">
             Teacher Profile

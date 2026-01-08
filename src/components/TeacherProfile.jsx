@@ -14,7 +14,7 @@ const TeacherProfile = () => {
           <h2 className="text-2xl font-bold text-center mb-4">
             Teacher Profile
           </h2>
-
+ 
           <p className="text-gray-700 text-center mb-6">
             You have not completed your registration yet.
           </p>

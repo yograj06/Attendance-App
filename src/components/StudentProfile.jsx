@@ -20,7 +20,7 @@ const StudentProfile = () => {
             <h3 className="text-lg font-semibold mb-2">
               Complete Your Profile
             </h3>
-
+ 
             <p className="text-sm text-gray-600 mb-4">
               Complete your registration to start using the system fully.
             </p>

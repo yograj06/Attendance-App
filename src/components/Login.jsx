@@ -5,7 +5,7 @@ const Login = () => {
 
   const [isLoginMode, setIsLoginMode] = useState(true)
   const [role, setRole] = useState("student")
-
+ 
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")

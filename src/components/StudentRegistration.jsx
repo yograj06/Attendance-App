@@ -127,7 +127,7 @@ const StudentRegistration = () => {
 
         {/* OTHER DETAILS */}
 
-       
+        
 
         <div className="mt-6 space-y-5">
           <div>

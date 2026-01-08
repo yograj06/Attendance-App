@@ -7,7 +7,7 @@ const TeacherAttendance = () => {
       <h1 className="text-3xl font-bold mb-4">
         Teacher Attendance Panel
       </h1>
-
+ 
       {!profile ? (
         <p className="text-gray-700">
           Please complete your profile first to access attendance features.

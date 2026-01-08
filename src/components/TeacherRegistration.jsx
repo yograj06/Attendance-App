@@ -171,3 +171,4 @@ const TeacherRegistration = () => {
 }
 
 export default TeacherRegistration
+ 

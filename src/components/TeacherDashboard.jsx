@@ -8,7 +8,7 @@ const TeacherDashboard = () => {
 
   const user = JSON.parse(localStorage.getItem("loggedInUser"))
   const userName = user?.name || "Teacher"
-
+ 
   // ---------------- IF NOT REGISTERED ----------------
   if (!profile) {
     return (

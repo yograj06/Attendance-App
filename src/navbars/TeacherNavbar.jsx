@@ -9,7 +9,7 @@ const TeacherNavbar = () => {
     localStorage.removeItem("loggedInUser")
     navigate("/")
   }
-
+ 
   return (
     <>
       {/* Top Navbar */}

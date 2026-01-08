@@ -11,7 +11,7 @@ const StudentLayout = () => {
       <main className="grow">
         <Outlet />
       </main>
-
+ 
       {/* Sticky Footer */}
       <footer className="text-center text-gray-800 text-xs sm:text-sm border-t border-gray-300 py-4">
         © 2026 | Attendance App — All rights reserved • Made with ❤️ by Data

@@ -9,7 +9,7 @@ const StudentAttendance = () => {
         Attendance feature coming soon...
       </p>
     </div>
-  )
+  ) 
 }
 
 export default StudentAttendance

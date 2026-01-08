@@ -48,8 +48,8 @@ const App = () => {
 
               {/* Footer */}
               <footer className="text-center mt-30 mb-5 sm:mt-10 text-gray-800 text-xs sm:text-sm border-t border-gray-500 pt-4">
-                © 2025 | Attendance App — All rights reserved • Made with ❤️ by
-                Yograj
+                © 2026 | Attendance App — All rights reserved • Made with ❤️ by
+                Data Dynamos
               </footer>
             </div>
           }
